@@ -31,4 +31,12 @@ public class Legality {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "Legality{" +
+                "format='" + format + '\'' +
+                ", legality='" + legality + '\'' +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

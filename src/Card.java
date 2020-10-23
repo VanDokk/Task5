@@ -1,11 +1,9 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Card {
 
     private String name;
-    private String manaCost;
+    private int manaCost;
     private Double cmc;
     private List<String> colors = null;
     private List<String> colorIdentity = null;
@@ -39,12 +37,12 @@ public class Card {
         this.name = name;
     }
 
-    public String getManaCost() {
+    public int getManaCost() {
         return manaCost;
     }
 
     public void setManaCost(String manaCost) {
-        this.manaCost = manaCost;
+        this.manaCost = Character.getNumericValue(manaCost.toCharArray()[1]);
     }
 
     public Double getCmc() {
@@ -239,4 +237,42 @@ public class Card {
         this.additionalProperties.put(name, value);
     }
 
+    public static Comparator<Card> byNameDesc = (o1, o2) -> o1.name.compareTo(o2.name);
+    public static Comparator<Card> byManaCostAsc = (o1, o2) -> Integer.compare(o1.manaCost, o2.manaCost);
+    public static Comparator<Card> byManaCostDesc = (o1, o2) -> Integer.compare(o2.manaCost, o1.manaCost);
+    public static Comparator<Card> byRarityDesc = (o1, o2) -> Integer.compare(Rarity.Rarities.indexOf(o2.rarity),
+                                                                Rarity.Rarities.indexOf(o1.rarity));
+    public static Comparator<Card> byRarityAsc = (o1, o2) -> Integer.compare(Rarity.Rarities.indexOf(o1.rarity),
+                                                               Rarity.Rarities.indexOf(o2.rarity));
+
+    @Override
+    public String toString() {
+        return "\n------------------------------\n" +
+                "name='" + name + '\'' +
+                ", manaCost='" + manaCost + '\'' +
+                ", cmc=" + cmc +
+                ", colors=" + colors +
+                ", colorIdentity=" + colorIdentity +
+                ", type='" + type + '\'' +
+                ", supertypes=" + supertypes +
+                ", types=" + types +
+                ", subtypes=" + subtypes +
+                ", rarity='" + rarity + '\'' +
+                ", set='" + set + '\'' +
+                ", setName='" + setName + '\'' +
+                ", text='" + text + '\'' +
+                ", artist='" + artist + '\'' +
+                ", number='" + number + '\'' +
+                ", layout='" + layout + '\'' +
+                ", multiverseid=" + multiverseid +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", rulings=" + rulings +
+                ", printings=" + printings +
+                ", originalText='" + originalText + '\'' +
+                ", originalType='" + originalType + '\'' +
+                ", legalities=" + legalities +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }
+

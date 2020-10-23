@@ -67,4 +67,16 @@ public class ForeignName {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "ForeignName{" +
+                "name='" + name + '\'' +
+                ", text='" + text + '\'' +
+                ", flavor=" + flavor +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", language='" + language + '\'' +
+                ", multiverseid=" + multiverseid +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

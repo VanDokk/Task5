@@ -31,4 +31,12 @@ public class Ruling {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "Ruling{" +
+                "date='" + date + '\'' +
+                ", text='" + text + '\'' +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }
