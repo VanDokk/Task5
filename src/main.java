@@ -1,18 +1,15 @@
 import java.io.IOException;
+import java.util.List;
 
 public class main {
     public static void main(String args[]) throws IOException
     {
 
         getJSON gj = new getJSON();
-        getJSON.url = "https://api.magicthegathering.io/v1/types";
-        gj.run();
+        getJSON.url = "https://api.magicthegathering.io/v1/cards";
+        gj.start();
 
-        Cards cards, cards1;
-        cards = cards1 = Cards.fromJSONtoObject(gj.getJson());
-        System.out.println(cards.toString());
-        System.out.println(cards.compareTo(cards1));
-
-
+        Cards cards = Cards.fromJSONToObjects(gj.getJson());
+        System.out.println(cards.getCards().get(0));
     }
 }

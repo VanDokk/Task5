@@ -43,7 +43,7 @@ public class getJSON extends Thread {
 
     @Override
     public void run() {
-        ConnectAndGetData();
+        System.out.println(ConnectAndGetData());
         super.run();
     }
 
